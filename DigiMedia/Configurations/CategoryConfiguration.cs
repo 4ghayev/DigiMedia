@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace DigiMedia.Configurations
 {
-    public class CategoryConfiguration : IEntityTypeConfiguration<ProjectModel>
+    public class CategoryConfiguration : IEntityTypeConfiguration<CategoryModel>
     {
-        public void Configure(EntityTypeBuilder<ProjectModel> builder)
+        public void Configure(EntityTypeBuilder<CategoryModel> builder)
         {
             builder.Property(x => x.Name).IsRequired().HasMaxLength(128);
         }

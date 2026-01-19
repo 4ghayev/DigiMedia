@@ -10,7 +10,7 @@ namespace DigiMedia.Configurations
         {
             builder.Property(x => x.Name).IsRequired().HasMaxLength(128);
             builder.Property(x => x.ImageUrl).IsRequired();
-            builder.Property(x=>x.Category).IsRequired();
+            
 
             builder.HasOne(x => x.Category).WithMany(c => c.Projects).HasForeignKey(x => x.CategoryId).HasPrincipalKey(x=>x.Id).OnDelete(DeleteBehavior.Cascade);
         }
