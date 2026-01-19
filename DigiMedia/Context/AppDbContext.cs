@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DigiMedia.Models;
+using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace DigiMedia.Context
 {
@@ -8,6 +10,13 @@ namespace DigiMedia.Context
         {
         }
 
-   
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            base.OnModelCreating(modelBuilder);
+        }
+
+        public DbSet<ProjectModel> Projects { get; set; }
+        public DbSet<CategoryModel> Categories { get; set; }
     }
 }
